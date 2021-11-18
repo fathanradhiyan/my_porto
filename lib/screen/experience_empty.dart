@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_porto/const/colors.dart';
-import 'package:my_porto/provider/dark_theme_provider.dart';
-import 'package:provider/provider.dart';
 
 class ExperienceEmpty extends StatelessWidget {
   @override
@@ -14,7 +12,8 @@ class ExperienceEmpty extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              height: 180,
+              height: 160,
+              width: 160,
               child: LottieBuilder.asset('assets/images/no_experience.json'),
             ),
             SizedBox(width: 10,),
