@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_porto/const/colors.dart';
 import 'package:my_porto/models/achievements_model.dart';
 import 'package:my_porto/provider/achievements_provider.dart';
 import 'package:my_porto/screen/empty_page.dart';
 import 'package:my_porto/widget/achievement_grid_card.dart';
+import 'package:my_porto/widget/custom_refresh_page.dart';
 import 'package:provider/provider.dart';
 
 class Achievement extends StatelessWidget {
@@ -24,17 +24,19 @@ class Achievement extends StatelessWidget {
                     color: Theme.of(context).textSelectionColor),
               ),
             ),
-            body: GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 250 / 360, // feedsProducts width/height
-              // crossAxisSpacing: 8,
-              // mainAxisSpacing: 8,
-              children: List.generate(achievementList.length, (index) {
-                return ChangeNotifierProvider.value(
-                  value: achievementList[index],
-                  child: AchievementGridCard(),
-                );
-              }),
+            body: CustomRefreshPage(
+              child: GridView.count(
+                crossAxisCount: 2,
+                childAspectRatio: 250 / 360, // feedsProducts width/height
+                // crossAxisSpacing: 8,
+                // mainAxisSpacing: 8,
+                children: List.generate(achievementList.length, (index) {
+                  return ChangeNotifierProvider.value(
+                    value: achievementList[index],
+                    child: AchievementGridCard(),
+                  );
+                }),
+              ),
             ));
   }
 }
