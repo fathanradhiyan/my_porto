@@ -5,6 +5,7 @@ import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:my_porto/const/colors.dart';
 import 'package:my_porto/const/theme_data.dart';
 import 'package:my_porto/provider/dark_theme_provider.dart';
+import 'package:my_porto/widget/fade_in_transition.dart';
 import 'package:provider/provider.dart';
 
 class More extends StatefulWidget {
@@ -17,46 +18,48 @@ class _MoreState extends State<More> {
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: moreTitle('Personal Info')),
-            Divider(
-              thickness: 1,
-              color: ColorsConsts.flamingo,
-            ),
-            moreListTile('Email', 'fathanradhiyan@gmail.com', 0, context),
-            moreListTile('DoB', 'April 29, 1998', 1, context),
-            moreListTile('Phone', '(+62)812 9022 0757', 2, context),
-            moreListTile('Address', 'Ciputat, Tangerang Selatan', 3, context),
+      body: FadeInTransition(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: moreTitle('Personal Info')),
+              Divider(
+                thickness: 1,
+                color: ColorsConsts.flamingo,
+              ),
+              moreListTile('Email', 'fathanradhiyan@gmail.com', 0, context),
+              moreListTile('DoB', 'April 29, 1998', 1, context),
+              moreListTile('Phone', '(+62)812 9022 0757', 2, context),
+              moreListTile('Address', 'Ciputat, Tangerang Selatan', 3, context),
 
-            Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: moreTitle('User Settings')),
-            Divider(
-              thickness: 1,
-              color: ColorsConsts.flamingo,
-            ),
-            ListTileSwitch(
-              value: themeChange.darkTheme,
-              leading: Icon(themeChange.darkTheme? Icons.light_mode : Icons.dark_mode, color: ColorsConsts.flamingo,),
-              onChanged: (value) {
-                setState(() {
-                  themeChange.darkTheme = value;
-                });
-              },
-              visualDensity: VisualDensity.comfortable,
-              switchType: SwitchType.cupertino,
-              switchActiveColor: ColorsConsts.cream,
-              switchInactiveColor: ColorsConsts.licorice,
-              title: Text(themeChange.darkTheme? 'Light Theme':'Dark Theme', style: GoogleFonts.poppins(color: Theme.of(context).primaryColor),),
-            ),
-            moreListTile('Logout', 'exit app', 4, context),
-          ],
+              Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: moreTitle('User Settings')),
+              Divider(
+                thickness: 1,
+                color: ColorsConsts.flamingo,
+              ),
+              ListTileSwitch(
+                value: themeChange.darkTheme,
+                leading: Icon(themeChange.darkTheme? Icons.light_mode : Icons.dark_mode, color: ColorsConsts.flamingo,),
+                onChanged: (value) {
+                  setState(() {
+                    themeChange.darkTheme = value;
+                  });
+                },
+                visualDensity: VisualDensity.comfortable,
+                switchType: SwitchType.cupertino,
+                switchActiveColor: ColorsConsts.cream,
+                switchInactiveColor: ColorsConsts.licorice,
+                title: Text(themeChange.darkTheme? 'Light Theme':'Dark Theme', style: GoogleFonts.poppins(color: Theme.of(context).primaryColor),),
+              ),
+              moreListTile('Logout', 'exit app', 4, context),
+            ],
+          ),
         ),
       ),
     );

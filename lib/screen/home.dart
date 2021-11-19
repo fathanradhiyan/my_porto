@@ -13,6 +13,7 @@ import 'package:my_porto/screen/experience_empty.dart';
 import 'package:my_porto/widget/back_layer_menu.dart';
 import 'package:my_porto/widget/custom_refresh_page.dart';
 import 'package:my_porto/widget/experience_card_widget.dart';
+import 'package:my_porto/widget/fade_in_transition.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
@@ -80,112 +81,114 @@ class _HomeState extends State<Home> {
         ),
         stickyFrontLayer: true,
         frontLayer: CustomRefreshPage(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 260.0,
-                  width: double.infinity,
-                  child: Carousel(
-                    boxFit: BoxFit.fill,
-                    autoplay: true,
-                    animationCurve: Curves.fastOutSlowIn,
-                    animationDuration: Duration(milliseconds: 1000),
-                    dotSize: 5.0,
-                    dotIncreasedColor: ColorsConsts.flamingo,
-                    dotBgColor: Theme.of(context)
-                        .scaffoldBackgroundColor
-                        .withOpacity(0.2),
-                    dotPosition: DotPosition.bottomCenter,
-                    // dotVerticalPadding: 10.0,
-                    showIndicator: true,
-                    indicatorBgPadding: 5.0,
-                    images: [
-                      ExactAssetImage(_carouselImages[0]),
-                      ExactAssetImage(_carouselImages[1]),
-                      ExactAssetImage(_carouselImages[2]),
-                      ExactAssetImage(_carouselImages[3]),
-                      ExactAssetImage(_carouselImages[4]),
-                      ExactAssetImage(_carouselImages[5]),
-                      ExactAssetImage(_carouselImages[6]),
-                      ExactAssetImage(_carouselImages[7]),
-                    ],
+          child: FadeInTransition(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 260.0,
+                    width: double.infinity,
+                    child: Carousel(
+                      boxFit: BoxFit.fill,
+                      autoplay: true,
+                      animationCurve: Curves.fastOutSlowIn,
+                      animationDuration: Duration(milliseconds: 1000),
+                      dotSize: 5.0,
+                      dotIncreasedColor: ColorsConsts.flamingo,
+                      dotBgColor: Theme.of(context)
+                          .scaffoldBackgroundColor
+                          .withOpacity(0.2),
+                      dotPosition: DotPosition.bottomCenter,
+                      // dotVerticalPadding: 10.0,
+                      showIndicator: true,
+                      indicatorBgPadding: 5.0,
+                      images: [
+                        ExactAssetImage(_carouselImages[0]),
+                        ExactAssetImage(_carouselImages[1]),
+                        ExactAssetImage(_carouselImages[2]),
+                        ExactAssetImage(_carouselImages[3]),
+                        ExactAssetImage(_carouselImages[4]),
+                        ExactAssetImage(_carouselImages[5]),
+                        ExactAssetImage(_carouselImages[6]),
+                        ExactAssetImage(_carouselImages[7]),
+                      ],
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Portfolio',
-                        style: GoogleFonts.pacifico(
-                          color: ColorsConsts.flamingo,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'Muhammad Fathan Radhiyan'.toUpperCase(),
-                        style: GoogleFonts.lato(
-                          color: Theme.of(context).textSelectionColor,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Mobile Developer',
-                        style: GoogleFonts.raleway(
-                          color: ColorsConsts.flamingo,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 16,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(2, 0, 0, 5),
-                            child: Text('Experiences',
-                                style: GoogleFonts.raleway(
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20)),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Portfolio',
+                          style: GoogleFonts.pacifico(
+                            color: ColorsConsts.flamingo,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
                           ),
-                          experienceLists.isNotEmpty
-                              ? ExperienceEmpty()
-                              : ListView(
-                                  scrollDirection: Axis.vertical,
-                                  shrinkWrap: true,
-                                  children: List.generate(experienceLists.length,
-                                      (index) {
-                                    return ChangeNotifierProvider.value(
-                                      value: experienceLists[index],
-                                      child: Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 10),
-                                        child: ExperienceCardWidget(),
-                                      ),
-                                    );
-                                  }),
-                                )
-                        ],
-                      )
-                    ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'Muhammad Fathan Radhiyan'.toUpperCase(),
+                          style: GoogleFonts.lato(
+                            color: Theme.of(context).textSelectionColor,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Mobile Developer',
+                          style: GoogleFonts.raleway(
+                            color: ColorsConsts.flamingo,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(2, 0, 0, 5),
+                              child: Text('Experiences',
+                                  style: GoogleFonts.raleway(
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20)),
+                            ),
+                            experienceLists.isEmpty
+                                ? ExperienceEmpty()
+                                : ListView(
+                                    scrollDirection: Axis.vertical,
+                                    shrinkWrap: true,
+                                    children: List.generate(experienceLists.length,
+                                        (index) {
+                                      return ChangeNotifierProvider.value(
+                                        value: experienceLists[index],
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(bottom: 10),
+                                          child: ExperienceCardWidget(),
+                                        ),
+                                      );
+                                    }),
+                                  )
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
