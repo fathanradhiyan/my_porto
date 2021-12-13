@@ -20,6 +20,7 @@ class MyPorto extends StatelessWidget {
         )
       : Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 3,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           title: Text(

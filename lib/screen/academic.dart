@@ -24,6 +24,7 @@ class _AcademicState extends State<Academic> {
           )
         : Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               elevation: 3,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               title: Text(

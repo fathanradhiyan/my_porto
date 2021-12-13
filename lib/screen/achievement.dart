@@ -17,6 +17,7 @@ class Achievement extends StatelessWidget {
         ? Scaffold(body: EmptyPage())
         : Scaffold(
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               elevation: 3,
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               title: Text(
