@@ -36,7 +36,7 @@ class _AchievementGridCardState extends State<AchievementGridCard> {
                         maxHeight: MediaQuery.of(context).size.height * 0.3),
                     child: Image.asset(
                       // 'assets/images/ijazah.jpg',
-                      achievementAttributes.imageUrl,
+                      achievementAttributes.imageUrl!,
                       fit: BoxFit.fitWidth,
                     ),
                   ),
@@ -70,7 +70,7 @@ class _AchievementGridCardState extends State<AchievementGridCard> {
                   ),
                   Text(
                     // 'UIN Jakarta',
-                    achievementAttributes.verifiedBy,
+                    achievementAttributes.verifiedBy!,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                     style: GoogleFonts.poppins(
@@ -81,7 +81,7 @@ class _AchievementGridCardState extends State<AchievementGridCard> {
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
                       // 'Title',
-                      achievementAttributes.title,
+                      achievementAttributes.title!,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                       style: GoogleFonts.poppins(

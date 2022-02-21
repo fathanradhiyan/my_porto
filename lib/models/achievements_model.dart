@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 
 class AchievementsModel with ChangeNotifier {
-  final String id;
-  final String title;
-  final String verifiedBy;
-  final String releaseDate;
-  final String expireDate;
-  final String imageUrl;
+  final String? id;
+  final String? title;
+  final String? verifiedBy;
+  final String? releaseDate;
+  final String? expireDate;
+  final String? imageUrl;
 
   AchievementsModel(
       {this.id,

@@ -38,6 +38,7 @@ class _SignInPageState extends State<SignInPage> {
                 border: Border.all(color: ColorsConsts.flamingo)
             ),
             child: TextField(
+                style: GoogleFonts.lato(fontSize: 14, color: themeChange.darkTheme? ColorsConsts.cream : ColorsConsts.licorice),
                 controller: emailController,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -56,6 +57,7 @@ class _SignInPageState extends State<SignInPage> {
                 border: Border.all(color: ColorsConsts.flamingo)
             ),
             child: TextField(
+              style: GoogleFonts.lato(fontSize: 14, color: ColorsConsts.licorice),
                 obscureText: true,
                 controller: passwordController,
                 decoration: InputDecoration(

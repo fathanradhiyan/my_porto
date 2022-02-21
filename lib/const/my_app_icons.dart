@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+// import 'package:flutter_icons/flutter_icons.dart';
 
 class myAppIcons {
-  static IconData home = MaterialIcons.home;
-  static IconData academic = MaterialIcons.school;
-  static IconData achievement = MaterialIcons.verified_user;
-  static IconData more = MaterialIcons.more;
-  static IconData search = MaterialIcons.search;
+  static IconData home = Icons.home;
+  static IconData academic = Icons.school;
+  static FaIcon achievement = FaIcon(FontAwesomeIcons.trophy);
+  static IconData more = Icons.more;
+  static IconData search = Icons.search;
 }

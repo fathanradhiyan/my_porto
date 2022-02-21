@@ -21,7 +21,7 @@ class ExperienceCardWidget extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 child: Image(
                   image: AssetImage(
-                      experienceAttributes.imageUrl
+                      experienceAttributes.imageUrl!
                   ),
                 ),
               ),
@@ -31,11 +31,11 @@ class ExperienceCardWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(experienceAttributes.workspaceName, style: GoogleFonts.raleway(color: Theme.of(context).textSelectionColor, fontWeight: FontWeight.w600)),
+                  Text(experienceAttributes.workspaceName!, style: GoogleFonts.raleway(color: Theme.of(context).textSelectionColor, fontWeight: FontWeight.w600)),
                   SizedBox(height: 5,),
-                  Text(experienceAttributes.roleName, style: GoogleFonts.oswald(color: Theme.of(context).focusColor)),
+                  Text(experienceAttributes.roleName!, style: GoogleFonts.oswald(color: Theme.of(context).focusColor)),
                   SizedBox(height: 5,),
-                  Text(experienceAttributes.startDate + " - " + experienceAttributes.endDate, style: GoogleFonts.raleway(color: Colors.grey),),
+                  Text(experienceAttributes.startDate! + " - " + experienceAttributes.endDate!, style: GoogleFonts.raleway(color: Colors.grey),),
                 ],
               ),
             )

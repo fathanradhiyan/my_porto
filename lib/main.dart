@@ -76,7 +76,3 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-//https://assets2.lottiefiles.com/packages/lf20_havdkcpe.json link animation loading lottie
-//https://assets2.lottiefiles.com/packages/lf20_qlwqp9xi.json link animation no data lottie
-//https://assets2.lottiefiles.com/private_files/lf30_bn5winlb.json link animation no data dessert theme
-//https://assets7.lottiefiles.com/packages/lf20_597nlu.json link animation no experience lottie

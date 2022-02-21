@@ -17,15 +17,6 @@ class EmptyPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Container(
-            //   margin: EdgeInsets.only(top: 50),
-            //   width: double.infinity,
-            //   height: MediaQuery.of(context).size.height * 0.4,
-            //   decoration: BoxDecoration(
-            //       image: DecorationImage(
-            //           image: AssetImage('assets/images/no_folder.png'),
-            //           scale: 3.0)),
-            // ),
             SizedBox(
               width: 250,
               height: MediaQuery.of(context).size.height * 0.4,

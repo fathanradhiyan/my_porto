@@ -1,8 +1,5 @@
-import 'package:backdrop/app_bar.dart';
-import 'package:backdrop/button.dart';
-import 'package:backdrop/scaffold.dart';
-import 'package:carousel_pro/carousel_pro.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:backdrop/backdrop.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_porto/const/colors.dart';
@@ -22,7 +19,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List _carouselImages = [
+  List<String> _carouselImages = [
     'assets/images/carousel_1.png',
     'assets/images/carousel_2.png',
     'assets/images/carousel_3.png',
@@ -33,14 +30,52 @@ class _HomeState extends State<Home> {
     'assets/images/carousel_8.jpg',
   ];
 
+  final CarouselController _controller = CarouselController();
+
   @override
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
     final experienceProviders = Provider.of<ExperiencesProvider>(context);
     List<ExperiencesModel> experienceLists = experienceProviders.experiences;
+
+    int _current = 0;
+    final List<Widget> imageSliders = _carouselImages
+        .map((item) => Container(
+      // margin: const EdgeInsets.all(5.0),
+      child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+          child: Stack(
+            children: <Widget>[
+              Image.asset(item, fit: BoxFit.cover, width: 1000),
+              //positioned untuk filter gelap
+              Positioned(
+                bottom: 0.0,
+                left: 0.0,
+                right: 0.0,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromARGB(200, 0, 0, 0),
+                        Color.fromARGB(0, 0, 0, 0)
+                      ],
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                    ),
+                  ),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 50.0, horizontal: 20.0),
+                ),
+              ),
+            ],
+          )),
+    ))
+        .toList();
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: BackdropScaffold(
-        headerHeight: MediaQuery.of(context).size.height * 0.20,
+        frontLayerBorderRadius: BorderRadius.only(topLeft: Radius.zero, topRight: Radius.zero),
+        headerHeight: size.height * 0.10,
         appBar: BackdropAppBar(
           title: Align(
             alignment: Alignment.center,
@@ -51,11 +86,6 @@ class _HomeState extends State<Home> {
                   : 'assets/images/logo_light.png'),
             ),
           ),
-          // Text(
-          //   "Home",
-          //   style: GoogleFonts.mcLaren(
-          //       color: Theme.of(context).textSelectionColor),
-          // ),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           elevation: 2,
           leading: BackdropToggleButton(
@@ -88,32 +118,43 @@ class _HomeState extends State<Home> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    height: 260.0,
+                    height: size.height * 0.3,
                     width: double.infinity,
-                    child: Carousel(
-                      boxFit: BoxFit.fill,
-                      autoplay: true,
-                      animationCurve: Curves.fastOutSlowIn,
-                      animationDuration: Duration(milliseconds: 1000),
-                      dotSize: 5.0,
-                      dotIncreasedColor: ColorsConsts.flamingo,
-                      dotBgColor: Theme.of(context)
-                          .scaffoldBackgroundColor
-                          .withOpacity(0.2),
-                      dotPosition: DotPosition.bottomCenter,
-                      // dotVerticalPadding: 10.0,
-                      showIndicator: true,
-                      indicatorBgPadding: 5.0,
-                      images: [
-                        ExactAssetImage(_carouselImages[0]),
-                        ExactAssetImage(_carouselImages[1]),
-                        ExactAssetImage(_carouselImages[2]),
-                        ExactAssetImage(_carouselImages[3]),
-                        ExactAssetImage(_carouselImages[4]),
-                        ExactAssetImage(_carouselImages[5]),
-                        ExactAssetImage(_carouselImages[6]),
-                        ExactAssetImage(_carouselImages[7]),
-                      ],
+                    child: CarouselSlider(
+                      items: imageSliders,
+                      carouselController: _controller,
+                      options: CarouselOptions(
+                          autoPlay: true,
+                          enlargeCenterPage: true,
+                          aspectRatio: 2.0,
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              _current = index;
+                            });
+                          }),
+                      // boxFit: BoxFit.fill,
+                      // autoplay: true,
+                      // animationCurve: Curves.fastOutSlowIn,
+                      // animationDuration: Duration(milliseconds: 1000),
+                      // dotSize: 5.0,
+                      // dotIncreasedColor: ColorsConsts.flamingo,
+                      // dotBgColor: Theme.of(context)
+                      //     .scaffoldBackgroundColor
+                      //     .withOpacity(0.2),
+                      // dotPosition: DotPosition.bottomCenter,
+                      // // dotVerticalPadding: 10.0,
+                      // showIndicator: true,
+                      // indicatorBgPadding: 5.0,
+                      // images: [
+                      //   ExactAssetImage(_carouselImages[0]),
+                      //   ExactAssetImage(_carouselImages[1]),
+                      //   ExactAssetImage(_carouselImages[2]),
+                      //   ExactAssetImage(_carouselImages[3]),
+                      //   ExactAssetImage(_carouselImages[4]),
+                      //   ExactAssetImage(_carouselImages[5]),
+                      //   ExactAssetImage(_carouselImages[6]),
+                      //   ExactAssetImage(_carouselImages[7]),
+                      // ],
                     ),
                   ),
                   Padding(

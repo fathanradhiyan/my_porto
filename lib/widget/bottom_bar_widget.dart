@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:flutter_icons/flutter_icons.dart';
 import 'package:my_porto/const/colors.dart';
 import 'package:my_porto/const/my_app_icons.dart';
 import 'package:my_porto/provider/dark_theme_provider.dart';
@@ -18,7 +19,7 @@ class BottomBarWidget extends StatefulWidget {
 }
 
 class _BottomBarWidgetState extends State<BottomBarWidget> {
-  List<Map<String, Object>> _pages;
+  List<Map<String, Widget>>? _pages;
   int _selectedIndex = 0;
 
   @override
@@ -53,7 +54,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
   Widget build(BuildContext context) {
     final themeChange = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
-      body: _pages[_selectedIndex]['page'],
+      body: _pages![_selectedIndex]['page'],
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
         clipBehavior: Clip.antiAlias,
@@ -81,7 +82,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                   tooltip: 'MyPorto',
                   label: 'MyPorto'),
               BottomNavigationBarItem(
-                  icon: Icon(myAppIcons.achievement),
+                  icon: myAppIcons.achievement,
                   tooltip: 'Achievement',
                   label: 'Achievement'),
               BottomNavigationBarItem(

@@ -11,7 +11,7 @@ class _PortfolioCardWidgetState extends State<PortfolioCardWidget> {
   @override
   Widget build(BuildContext context) {
     final portfolioAttributes = Provider.of<PortfolioModel>(context);
-    List<dynamic> imageLists = portfolioAttributes.imageUrl;
+    List<dynamic> imageLists = portfolioAttributes.imageUrl!;
     return Container(
         height: 200,
         decoration: BoxDecoration(

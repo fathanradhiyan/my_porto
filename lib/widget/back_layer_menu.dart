@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_porto/const/colors.dart';
+import 'package:my_porto/widget/language_bar_widget.dart';
+import 'package:my_porto/widget/operating_skill_widget.dart';
+import 'package:my_porto/widget/skill_bar_widget.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class BackLayerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
       child: Column(
@@ -52,120 +56,12 @@ class BackLayerMenu extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.grey.withOpacity(0.3),
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        animation: true,
-                        lineHeight: 12.0,
-                        animationDuration: 1500,
-                        percent: 0.9,
-                        center: Text(
-                          "Programming",
-                          style: GoogleFonts.raleway(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              fontSize: 9),
-                        ),
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: ColorsConsts.flamingo,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.grey.withOpacity(0.3),
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        animation: true,
-                        lineHeight: 12.0,
-                        animationDuration: 1500,
-                        percent: 0.85,
-                        center: Text(
-                          "Flutter",
-                          style: GoogleFonts.raleway(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              fontSize: 9),
-                        ),
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: ColorsConsts.flamingo,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.grey.withOpacity(0.3),
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        animation: true,
-                        lineHeight: 12.0,
-                        animationDuration: 1500,
-                        percent: 0.85,
-                        center: Text(
-                          "Android Native",
-                          style: GoogleFonts.raleway(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              fontSize: 9),
-                        ),
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: ColorsConsts.flamingo,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.grey.withOpacity(0.3),
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        animation: true,
-                        lineHeight: 12.0,
-                        animationDuration: 1500,
-                        percent: 0.65,
-                        center: Text(
-                          "Web Development",
-                          style: GoogleFonts.raleway(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              fontSize: 9),
-                        ),
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: ColorsConsts.flamingo,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.grey.withOpacity(0.3),
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        animation: true,
-                        lineHeight: 12.0,
-                        animationDuration: 1500,
-                        percent: 0.80,
-                        center: Text(
-                          "Problem Solving",
-                          style: GoogleFonts.raleway(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              fontSize: 9),
-                        ),
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: ColorsConsts.flamingo,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: LinearPercentIndicator(
-                        backgroundColor: Colors.grey.withOpacity(0.3),
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        animation: true,
-                        lineHeight: 12.0,
-                        animationDuration: 1500,
-                        percent: 0.75,
-                        center: Text(
-                          "Public Speaking",
-                          style: GoogleFonts.raleway(
-                              color: Theme.of(context).scaffoldBackgroundColor,
-                              fontSize: 9),
-                        ),
-                        linearStrokeCap: LinearStrokeCap.roundAll,
-                        progressColor: ColorsConsts.flamingo,
-                      ),
-                    ),
+                    SkillBarWidget(barPercentage: 0.9, barName: 'Programming',),
+                    SkillBarWidget(barPercentage: 0.95, barName: 'Flutter',),
+                    SkillBarWidget(barPercentage: 0.75, barName: 'Android Native',),
+                    SkillBarWidget(barPercentage: 0.65, barName: 'Web Development',),
+                    SkillBarWidget(barPercentage: 0.8, barName: 'Problem Solving',),
+                    SkillBarWidget(barPercentage: 0.75, barName: 'Public Speaking',),
                   ],
                 ),
               )
@@ -182,69 +78,25 @@ class BackLayerMenu extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 16)),
           ),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          Container(
+            height: size.height * 0.18,
+            width: double.infinity,
+            child: ListView(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularPercentIndicator(
-                  radius: 80.0,
-                  lineWidth: 10.0,
-                  animation: true,
-                  animationDuration: 1500,
-                  percent: 0.5,
-                  center: Image(
-                    height: 45,
-                    width: 45,
-                    image: AssetImage('assets/images/skills_1.png'),
-                  ),
-                  footer: Text("Photoshop",
-                      style: GoogleFonts.raleway(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          fontSize: 14)),
-                  circularStrokeCap: CircularStrokeCap.round,
-                  progressColor: ColorsConsts.flamingo,
+                OperatingSkillWidget(percentage: 0.5, logoTitle: 'Photoshop', logoUrl: 'assets/images/skills_1.png',),
+                SizedBox(
+                  width: 15,
                 ),
-                SizedBox(width: 20,),
-                CircularPercentIndicator(
-                  radius: 80.0,
-                  lineWidth: 10.0,
-                  animation: true,
-                  animationDuration: 1500,
-                  percent: 0.9,
-                  center: Image(
-                    height: 45,
-                    width: 45,
-                    image: AssetImage('assets/images/skills_2.png'),
-                  ),
-                  footer: Text("Office",
-                      style: GoogleFonts.raleway(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          fontSize: 14)),
-                  circularStrokeCap: CircularStrokeCap.round,
-                  progressColor: ColorsConsts.flamingo,
+                OperatingSkillWidget(percentage: 0.9, logoTitle: 'Office', logoUrl: 'assets/images/skills_2.png',),
+                SizedBox(
+                  width: 15,
                 ),
-                SizedBox(width: 20,),
-                CircularPercentIndicator(
-                  radius: 80.0,
-                  lineWidth: 10.0,
-                  animation: true,
-                  animationDuration: 1500,
-                  percent: 0.5,
-                  center: Image(
-                    height: 35,
-                    width: 35,
-                    image: AssetImage('assets/images/skills_3.png'),
-                  ),
-                  footer: Text("Filmora",
-                      style: GoogleFonts.raleway(
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          fontSize: 14)),
-                  circularStrokeCap: CircularStrokeCap.round,
-                  progressColor: ColorsConsts.flamingo,
-                ),
+                OperatingSkillWidget(percentage: 0.5, logoTitle: 'Filmora', logoUrl: 'assets/images/skills_3.png',),
               ],
             ),
-          SizedBox(
-            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
@@ -254,89 +106,15 @@ class BackLayerMenu extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 16)),
           ),
-          Row(
-            children: [
-              Image(
-                width: 30,
-                height: 20,
-                image: AssetImage('assets/images/language_1.jpg'),),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 5),
-                child: LinearPercentIndicator(
-                  backgroundColor: Colors.grey.withOpacity(0.3),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  animation: true,
-                  lineHeight: 12.0,
-                  animationDuration: 1500,
-                  percent: 0.9,
-                  center: Text(
-                    "English",
-                    style: GoogleFonts.raleway(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        fontSize: 9),
-                  ),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: ColorsConsts.flamingo,
-                ),
-              ),
-            ],
+          LanguageBarWidget(percentage: 0.9, logoUrl: 'assets/images/language_1.jpg', logoTitle: "English",),
+          SizedBox(
+            height: 5,
           ),
-          SizedBox(height: 5,),
-          Row(
-            children: [
-              Image(
-                width: 30,
-                height: 20,
-                image: AssetImage('assets/images/language_2.png'),),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 5),
-                child: LinearPercentIndicator(
-                  backgroundColor: Colors.grey.withOpacity(0.3),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  animation: true,
-                  lineHeight: 12.0,
-                  animationDuration: 1500,
-                  percent: 0.8,
-                  center: Text(
-                    "Arabic",
-                    style: GoogleFonts.raleway(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        fontSize: 9),
-                  ),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: ColorsConsts.flamingo,
-                ),
-              ),
-            ],
+          LanguageBarWidget(percentage: 0.8, logoUrl: 'assets/images/language_2.png', logoTitle: "Arabic",),
+          SizedBox(
+            height: 5,
           ),
-          SizedBox(height: 5,),
-          Row(
-            children: [
-              Image(
-                width: 30,
-                height: 20,
-                image: AssetImage('assets/images/language_3.jpg'),),
-              Padding(
-                padding: const EdgeInsets.only(left: 10, bottom: 5),
-                child: LinearPercentIndicator(
-                  backgroundColor: Colors.grey.withOpacity(0.3),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  animation: true,
-                  lineHeight: 12.0,
-                  animationDuration: 1500,
-                  percent: 0.3,
-                  center: Text(
-                    "Germany",
-                    style: GoogleFonts.raleway(
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        fontSize: 9),
-                  ),
-                  linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: ColorsConsts.flamingo,
-                ),
-              ),
-            ],
-          ),
+          LanguageBarWidget(percentage: 0.3, logoUrl: 'assets/images/language_3.jpg', logoTitle: "Germany",),
         ],
       ),
     );

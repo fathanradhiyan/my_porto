@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:my_porto/const/colors.dart';
 
 class CustomRefreshPage extends StatefulWidget {
-  final Widget child;
+  final Widget? child;
 
-  const CustomRefreshPage({Key key, this.child}) : super(key: key);
+  const CustomRefreshPage({Key? key, this.child}) : super(key: key);
 
 
 
@@ -26,7 +26,7 @@ class _CustomRefreshPageState extends State<CustomRefreshPage> {
     return RefreshIndicator(
       onRefresh: _refresh,
       color: ColorsConsts.flamingo,
-      child: widget.child,
+      child: widget.child!,
     );
   }
 }

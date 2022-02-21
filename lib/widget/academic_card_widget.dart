@@ -29,7 +29,7 @@ class AcademicCardWidget extends StatelessWidget {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8), topRight: Radius.circular(8)),
                 image: DecorationImage(
-                    image: NetworkImage(academicAttributes.imageUrl),
+                    image: NetworkImage(academicAttributes.imageUrl!),
                     fit: BoxFit.cover)),
           ),
           Container(
@@ -39,7 +39,7 @@ class AcademicCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  academicAttributes.academyGrade,
+                  academicAttributes.academyGrade!,
                   style: GoogleFonts.raleway(
                     color: ColorsConsts.licorice,
                   ),
@@ -47,7 +47,7 @@ class AcademicCardWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Text(
-                    academicAttributes.academyName.toUpperCase(),
+                    academicAttributes.academyName!.toUpperCase(),
                     style: GoogleFonts.lato(
                         color: ColorsConsts.licorice,
                         fontSize: 20,
@@ -55,7 +55,7 @@ class AcademicCardWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  academicAttributes.academyDomicile,
+                  academicAttributes.academyDomicile!,
                   style: GoogleFonts.raleway(
                       color: ColorsConsts.licorice,
                       fontSize: 14,
@@ -64,7 +64,7 @@ class AcademicCardWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 15,),
                 Text(
-                  academicAttributes.academyDegree,
+                  academicAttributes.academyDegree!,
                   style: GoogleFonts.raleway(
                       color: ColorsConsts.licorice,
                       fontSize: 14),
@@ -78,7 +78,7 @@ class AcademicCardWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 30,),
                 Text(
-                  academicAttributes.academyAddress,
+                  academicAttributes.academyAddress!,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: GoogleFonts.raleway(
