@@ -6,9 +6,6 @@ class CustomRefreshPage extends StatefulWidget {
 
   const CustomRefreshPage({Key? key, this.child}) : super(key: key);
 
-
-
-
   @override
   _CustomRefreshPageState createState() => _CustomRefreshPageState();
 }

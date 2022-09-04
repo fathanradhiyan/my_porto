@@ -13,7 +13,7 @@ class AcademicsProvider with ChangeNotifier {
       academyDegree: 'Teknik Informatika',
       graduateYear: '2021',
       contactInfo: '(021) 7401925',
-      imageUrl: 'https://spmb.uinjkt.ac.id/spmbv2/asset/img/uinjkt.jpg',
+      imageUrl: 'https://mediacdn.quipper.com/media/W1siZiIsIjIwMTgvMDEvMjMvMDkvNDQvNDUvYTM0NWE1ZWMtNzAyZi00ZjZiLTk5MWMtZDc3N2U3ZDlhMmFmLyJdLFsicCIsInRodW1iIiwiMTIwMHhcdTAwM2UiLHt9XSxbInAiLCJjb252ZXJ0IiwiLWNvbG9yc3BhY2Ugc1JHQiAtc3RyaXAiLHsiZm9ybWF0IjoianBnIn1dXQ?sha=74e75aeabbecb6c6',
     ),
     AcademicsModel(
       id: 'academic02',
@@ -39,7 +39,7 @@ class AcademicsProvider with ChangeNotifier {
     ),
     AcademicsModel(
       id: 'academic04',
-      academyName: 'SDIT AL-Mughni',
+      academyName: 'SDIT Al-Mughni',
       academyGrade: 'SD',
       academyDomicile: 'Jakarta Selatan',
       academyAddress: 'Jl. Jendral Gatot Subroto Kav .26 Jakarta Selatan',
